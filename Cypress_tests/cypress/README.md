@@ -5,15 +5,15 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
 
 ## Aplicación Objetivo de pruebas![image](https://user-images.githubusercontent.com/124526219/236736518-0c9ae180-1e16-4704-a737-f1e26f336489.png)
 
-- Ghost v 5.41.0 
+- Ghost v 5.47.1 
 
  
 
 ## Librerías utilizadas: 
 
-- Node v14.21.3 
+- Node v16.20.0 
 
-- cypress v12.11.0
+- cypress v12.12.0
 
 
 
