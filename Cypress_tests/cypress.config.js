@@ -6,4 +6,11 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+  env: {
+    baseURL: "http://localhost:2368",
+    credentials: {
+      email: "correoDePrueba@gmail.com",
+      password: "@1234567890*",
+    },
+  },
 });
