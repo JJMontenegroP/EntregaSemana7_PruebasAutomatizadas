@@ -1,5 +1,5 @@
-import LoginPage from "../pages/LoginPage";
-import CreateNewPost from "../pages/CreateNewPost";
+import LoginPage from "../../pages/LoginPage";
+import CreateNewPost from "../../pages/CreateNewPost";
 
 const ghostUrl = Cypress.env("baseURL");
 const CONSTANTS = {
