@@ -60,7 +60,7 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
  
 
 ## Escenarios de pruebas
-[Escenarios de pruebas](https://github.com/danierazome/Pruebas-automatizadas/wiki/Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
+[Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/1.1.-Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
 
 ## Ejecucion de pruebas de regresion visual
 
