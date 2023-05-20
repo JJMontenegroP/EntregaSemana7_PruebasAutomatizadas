@@ -10,5 +10,5 @@ Integrantes:
 
  ## Las herramientas utilizadas para el desarrollo de las pruebas E2E fueron:
 
-### [Cypress](/cypress_tests)
+### [Cypress](/Cypress_tests)
 ### [Kraken](/kraken_tests)
