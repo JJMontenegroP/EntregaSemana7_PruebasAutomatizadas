@@ -43,7 +43,7 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
  
 ### Preparación del ambiente 
 
-1. Descargar el repositorio https://github.com/danierazome/Pruebas-automatizadas de la rama master 
+1. Descargar el repositorio [EntregaSemana7_PruebasAutomatizadas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas) de la rama master 
 
 2. Abrir la carpeta kraken_tests/cypress_tests/ con el IDE de su gusto 
 
@@ -57,18 +57,8 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
 
   - Pararse en el directorio de la aplicación ghost
   - ejecutar el comando rm -f content/data/ghost-local.db
- 
+
+3. Ejecutar primeramente el escenario de crear cuenta, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
 
 ## Escenarios de pruebas
 [Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/1.1.-Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
-
-## Ejecucion de pruebas de regresion visual
-
-1. Se ejucutan los escenarios de pruebas con la herramienta Cypress para la version antigua 3.41.1 generando asi reportes en la carpeta report en la raiz del proyecto cypress_tests/cypress donde se podra encontrar una carpeta por cada uno de escenarios de pruebas ejecutados y dentro de esta habrá un folder llamadado screenshots donde se puede encontrar un screenshot por cada paso perteneciente al escenario de prueba ejecutado
-2. Se ejucutan los escenarios de pruebas con la herramienta kraken para la version nueva 5.47.1 generando asi reportes en la carpeta report en la raiz del proyecto cypress_tests/cypress donde se podra encontrar una carpeta por cada uno de escenarios de pruebas ejecutados y dentro de esta habrá un folder llamadado screenshots donde se puede encontrar un screenshot por cada paso perteneciente al escenario de prueba ejecutado
-3. Se descarga de este repositorio el proyecto ReseambleJS para kraken el cual se encuenta en kraken_tests/ResembleJS_kraken
-4. Se lanza el comando npm install para que descargue las librerias necesarias para compilar el proyecto de ResembleJS_kraken
-5. Se copia los screenshots generados en el paso 1 para el escenario x en el proyecto de ResembleJS_kraken en la ubicación ResembleJS_kraken/scenario/old-version y los screenshots generados en el paso 2 para el escenario x en la carpeta ResembleJS_kraken/scenario/new-version
-6. Se ejecuta el comando npm index.js para correr las pruebas de regresion visual
-7. Se dirigue a ResembleJS_kraken/report/FechaDeEjecucionDeLaRegresionVisual
-8. Se abre el report.html para visualizar el resultado de las pruebas
