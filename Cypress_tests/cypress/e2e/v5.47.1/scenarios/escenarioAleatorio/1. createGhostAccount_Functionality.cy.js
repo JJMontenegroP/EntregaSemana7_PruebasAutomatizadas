@@ -1,6 +1,6 @@
-import LoginPage from "../pages/LoginPage";
-import SignInPage from "../pages/SignInPage";
-import PARAMETERS from "../../parameters"
+import LoginPage from "../../pages/LoginPage"
+import SignInPage from "../../pages/SignInPage";
+import PARAMETERS from "../../../parameters"
 
 const ghostUrl = Cypress.env("baseURL");
 const CONSTANTS={
