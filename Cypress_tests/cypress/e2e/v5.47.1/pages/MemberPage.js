@@ -42,7 +42,7 @@ class MemberPage {
     loadFileCSV(pathcsv) {
         cy.get("input[type=file]").eq(0).selectFile(pathcsv, { force: true })
         cy.get("button").contains(/Import/).click();
-        cy.wait(35000)
+        cy.wait(30000)
         cy.get("button[data-test-button='close-import-members']").click();
     }
 }
