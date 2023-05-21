@@ -1,10 +1,18 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const fs = require("fs");
+const fetch = require("node-fetch");
 
-const email = "danielerazoiin@gmail.com";
-const password = "Udea191919";
+const email = "s.sierrar2@uniandes.edu.co";
+const password = "And3sP@Krak3n2023";
 
 this.counterRows = 1;
+
+var jsonData = ''
+const apiURLs = {
+  sc01: "https://my.api.mockaroo.com/scenario_01?key=966c3bd0",
+};
+
+let responseHttp;
 
 // ----------DATA A PRIORI STARTS
 
@@ -38,6 +46,17 @@ When(
 );
 
 // ----------DATA A PRIORI ENDS
+
+// -----------DATA PSEUDO ALEATORIA
+When("I retrieve data from {string}", async function (urlUrlKey) {
+  console.log(apiURLs[urlUrlKey]);
+
+  const response = await fetch(apiURLs[urlUrlKey]);
+
+  responseHttp = await response.json();
+
+  console.log(responseHttp);
+});
 
 // ----------ESCENARIOS ALEATORIOS STARTS
 
@@ -177,4 +196,22 @@ Then("I change sshots names", async function () {
     contador++;
     console.log(file);
   });
+});
+
+When("I retrieve data from", async function () {
+  const response = await fetch(
+  "https://my.api.mockaroo.com/sc11?key=966c3bd0"
+  );
+  jsonData = await response.json();
+  });
+
+When("I fill a text with mockaroo {string} {string} {string}",
+async function (description, reference, field_type) {
+  console.log(description)
+  if (jsonData.hasOwnProperty(field_type)) {
+    let element = await this.driver.$(reference);
+    return await element.setValue(jsonData[field_type]);
+  } else {
+    throw new Error(`The key ${field_type} doesnt exist.`);
+  }
 });
