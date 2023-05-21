@@ -8,8 +8,13 @@ Integrantes:
 - Liceth Yaneth
 - Juan José Montenegro
 
- ## Las herramientas utilizadas para el desarrollo de las pruebas E2E fueron:
+# Herramientas utilizadas para pruebas de E2E
+## [Cypress](/Cypress_tests)
 
-### [Cypress](/Cypress_tests)
-### [Kraken](/Kraken_tests)
+*** 
+
+## Kraken
+### [Proyecto](/Kraken_tests)
+### [Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/2.2.-Escenarios-de-pruebas-con-Kraken)
+### [Estrategias Generación de datos](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/2.3-Estrategias-generaci%C3%B3n-de-datos-Kraken)
 
