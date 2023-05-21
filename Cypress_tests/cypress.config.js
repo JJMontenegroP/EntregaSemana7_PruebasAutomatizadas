@@ -7,7 +7,7 @@ module.exports = defineConfig({
     },
   },
   env: {
-    baseURL: "http://localhost:2370",
+    baseURL: "http://localhost:2368",
     credentials: {
       email: "correoDePrueba@gmail.com",
       password: "@1234567890*",
