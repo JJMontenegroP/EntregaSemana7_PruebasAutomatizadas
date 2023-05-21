@@ -1,26 +1,26 @@
 Feature: Testing ghost app
 
 @user2 @web
-Scenario Outline: Crear Post con un titulo con un número de caracteres por arriba del límite(255) superior 
+Scenario Outline: Crear Tag  con un nombre con un número de caracteres por encima del límite(191)
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
   And I wait for 5 seconds
   And I update the counter with <id>
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
   And I wait for 5 seconds
-  And I click a button "Click post btn in lateral menu" 'a[class="ember-view gh-secondary-action gh-nav-new-post"]'
-  And I wait for 5 seconds
-  And I fill with text a field "Fill Post title" 'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]' "New Post"
+  And I navigate to page "http://localhost:2368/ghost/#/tags"
   And I wait for 2 seconds
-  And I fill with text a post desc "<description>"
-  And I wait for 2 seconds
-  And I fill with text a field "Fill Post title" 'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]' "<postTitle>"
-  And I wait for 5 seconds
-  And I click a button "Click a publish btn" 'button[data-test-button="publish-flow"]'
-  And I wait for 2 seconds
-  Then I click a button "Click btn to close message error" 'button[class="gh-alert-close"]'
+  And I click a button "Click a New tag btn" 'a[href="#/tags/new/"]'
+  And I wait for 3 seconds
+  And I fill with text a field "Fill in tag name" 'input[id="tag-name"]' "<tagName>"
+  And I wait for 3 seconds
+  And I fill with text a field "Fill in description tag" 'textarea[class="gh-input gh-tag-details-textarea"]' "<description>"
+  And I wait for 3 seconds
+  And I click a btn "Click the save tag btn" 'button[data-test-button="save"]'
+  And I wait for 3 seconds
+  And I find an element "Click the error message" 'span[class="error"]'
   And I wait for 2 seconds
 
   Examples:
-  | id | postTitle | description | characters |
-  | 2 | qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq |  DESC | 270 | 
-  | 1 | 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111ññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññ | DESC | 300 | 
+  | id | tagName | description | characters |
+  | 2 | qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq |  DESC | 200 | 
+  | 1 | wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww | DESC | 210 | 

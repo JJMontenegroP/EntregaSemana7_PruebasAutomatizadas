@@ -84,7 +84,7 @@ When(
   }
 );
 
-// ----------ESCENARIOS ALEATORIOS STARTS
+// ----------ESCENARIOS ALEATORIOS ENDS
 When(
   "I log in {string} {string} {string}",
   async function (emailSelector, passwordSelector, submitSelector) {
