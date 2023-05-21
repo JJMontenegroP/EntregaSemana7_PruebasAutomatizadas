@@ -5,7 +5,9 @@ const ghostUrl = Cypress.env("baseURL");
 const CONSTANTS = {
     PATHCSV_VALID_CSV:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/Import_a_valid _CSV.csv",
     PATHCSV_VALID_CSV_ONE_ROW:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/Import_a_valid _CSV_one_row.csv",
-    PATHCSV_VALID_CSV_EMPTY_FIELDS:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/Import_a_CSV_empty_fields.csv"
+    PATHCSV_EMPTY_FIELDS:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/Import_a_CSV_empty_fields.csv",
+    PATHCSV_INVALID_EMAILS:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/import_a_CSV_invalid_emails.csv",
+    PATHCSV_DUPLICATES:"cypress/e2e/v5.47.1/scenarios/poolDataA-priori/data/3. importMember_Functionality/Import_a_CSV_duplicate_lines.csv",
 }
 
   
@@ -28,10 +30,10 @@ describe("Import members with CSV file", () => {
         cy.get("table").should("exist")
         //cy.get("table").find("tbody").find("tr").should("have.length",1)
 
-    })
+    });
     it("Import CSV with some empty fields",()=>{
           let n_length=0
-          cy.readFile(CONSTANTS.PATHCSV_VALID_CSV_EMPTY_FIELDS, 'utf8').then(data => {
+          cy.readFile(CONSTANTS.PATHCSV_EMPTY_FIELDS, 'utf8').then(data => {
             const lines = data.split('\n').filter(line => line.trim() !== '');
             console.log(lines)
             n_length=lines.length
@@ -39,13 +41,13 @@ describe("Import members with CSV file", () => {
 
           // When Validate whether the members have been saved correctly through a CSV file
           MemberPage.goToMemberPage();
-          MemberPage.importCSV(CONSTANTS.PATHCSV_VALID_CSV_EMPTY_FIELDS);
+          MemberPage.importCSV(CONSTANTS.PATHCSV_EMPTY_FIELDS);
           
           // Then: A table should exist showing the created members
           cy.get("table").should("exist")
           cy.get("div[data-test-table='members']").scrollTo("center")
           cy.get("table").find("tbody").find("tr").should("have.length",n_length-1)})
-    })
+    });
     it("Import a valid CSV all fields valid",() => {
         let n_length=0
          cy.readFile(CONSTANTS.PATHCSV_VALID_CSV, 'utf8').then(data => {
@@ -64,13 +66,30 @@ describe("Import members with CSV file", () => {
                 cy.screenshot(`v5-${Cypress.currentTest.titlePath.join("/")}/step`);
     });    
     });
-    it("Import a CSV with invalid email", () => {
+    it("Import a CSV with invalid emails", () => {
         // When Validate member records saved correctly via CSV with invalid email
             MemberPage.goToMemberPage();
-            MemberPage.importInvalidCSV();
+            MemberPage.importInvalidCSV(CONSTANTS.PATHCSV_INVALID_EMAILS);
         
         // Then: A member that should not have been created due to an invalid email address
-            cy.get("a[data-test-table-data='details']").should("not.contain", "Laura Gomez");
-            cy.screenshot(`v5-${Cypress.currentTest.titlePath.join("/")}/step`); 
+            cy.contains("members were skipped due to the following errors:")
+            cy.contains("Invalid Email")
     });
+    it("CSV with duplicate data lines",()=>{
+        let n_length=0
+        cy.readFile(CONSTANTS.PATHCSV_VALID_CSV, 'utf8').then(data => {
+            const lines = data.split('\n').filter(line => line.trim() !== '');
+            console.log(lines)
+            n_length=lines.length
+          }).then(()=>{
+        // When Validate member records saved correctly via CSV with invalid email
+            MemberPage.goToMemberPage();
+            MemberPage.importCSV(CONSTANTS.PATHCSV_DUPLICATES);
+        
+        // Then: A member that should not have been created due to an invalid email address
+            cy.get("table").should("exist")
+            cy.get("div[data-test-table='members']").scrollTo("center")
+            cy.get("table").find("tbody").find("tr").should("have.length",(n_length-1)/2)
+        });
+    })
 });
