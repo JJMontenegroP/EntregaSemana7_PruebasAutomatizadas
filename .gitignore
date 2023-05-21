@@ -1,0 +1,5 @@
+node_modules/
+kraken_tests/kraken_project/package-lock.json
+kraken_tests/kraken_project/package.json
+kraken_tests/kraken_project/.kraken
+kraken_tests/kraken_project/reports

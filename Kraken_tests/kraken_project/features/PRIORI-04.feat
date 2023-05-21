@@ -1,0 +1,40 @@
+Feature: Testing ghost app
+
+@user2 @web
+Scenario Outline: Crear Post y eliminar el post creado
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 5 seconds
+  And I update the counter with <id>
+  When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 5 seconds
+  And I click a button "Click post btn in lateral menu" 'a[class="ember-view gh-secondary-action gh-nav-new-post"]'
+  And I fill with text a field "Fill Post title" 'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]' "<postTitle>"
+  And I fill with text a post desc "<description>"
+  And I wait for 2 seconds
+  And I click a button "Click a publish btn" 'button[data-test-button="publish-flow"]'
+  And I wait for 2 seconds
+  And I click a button "Click a continue, final review btn" 'button[data-test-button="continue"]'
+  And I wait for 2 seconds
+  And I click a button "Click a publish post, right now btn" 'button[data-test-button="confirm-publish"]'
+  And I wait for 2 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/site"
+  And I wait for 2 seconds
+  And I click a button "Click a search btn in side menu" 'button[class="gh-nav-btn-search"]'
+  And I wait for 3 seconds
+  And I fill with text a field "Fill in with post name" 'input[class="gh-input-with-select-input"]' "<postTitle>"
+  And I wait for 3 seconds
+  And I fill with text a field "Fill in with post name" 'input[class="gh-input-with-select-input"]' "<postTitle>"
+  And I wait for 3 seconds
+  And I click a btn "Click the search result" 'li[class="ember-power-select-option"]'
+  And I wait for 3 seconds
+  And I click a btn "Click in the settings btn" 'button[title="Settings"]'
+  And I wait for 3 seconds
+  And I click a btn "Click in the delete btn" 'button[class="gh-btn gh-btn-hover-red gh-btn-icon settings-menu-delete-button"]'
+  And I wait for 3 seconds
+  Then I click a btn "Click in the confirm delete btn" 'button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]'
+  And I wait for 3 seconds
+
+  Examples:
+  | id | postTitle | description |
+  | 2 | Post 7 | It is my 7th post | 
+  | 1 | Post 8| It is my 8th post | 
