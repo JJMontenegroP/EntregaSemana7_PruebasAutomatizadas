@@ -197,6 +197,5 @@ async function (description, reference, field_type) {
     return await element.setValue(jsonData[field_type]);
   } else {
     throw new Error(`The key ${field_type} doesnt exist.`);
-
   }
 });
