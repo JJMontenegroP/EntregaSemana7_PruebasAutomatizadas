@@ -11,11 +11,11 @@ Scenario: Crear un nuevo miembro y validar que existe
   And I wait for 2 seconds
   And I click a button "Click on the new member option" 'a[href="#/members/new/"]'
   And I wait for 3 seconds
-  And I fill with text a mockaroo "Fill Member Name with mockaroo" 'input[class="ember-text-field gh-input ember-view"]' "/sc11" "name"
+  And I fill a text with mockaroo "Filling name with mockaroo" 'input[class="ember-text-field gh-input ember-view"]' "name"
   And I wait for 3 seconds
-  And I fill with text a mockaroo "Fill Member Email" 'input[id="member-email"]' "/sc11" "email"
+  And I fill a text with mockaroo "Fill Member Email with mockaroo" 'input[id="member-email"]' "email"
   And I wait for 3 seconds
-  And I fill with text a mockaroo "Fill Member Email" 'textarea[id="member-note"]' "/sc11" "description"
+  And I fill a text with mockaroo "Fill Member Description with mockaroo" 'textarea[id="member-note"]' "description"
   And I wait for 3 seconds
   And I click a button "Click on save btn" 'button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]'
   And I wait for 3 seconds

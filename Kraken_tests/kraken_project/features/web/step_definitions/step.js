@@ -7,6 +7,7 @@ const password = "And3sP@Krak3n2023";
 
 this.counterRows = 1;
 
+var jsonData = ''
 
 // ----------DATA A PRIORI STARTS
 
@@ -182,10 +183,20 @@ Then("I change sshots names", async function () {
 });
 
 When("I retrieve data from", async function () {
-  console.log("ññññññññññññññ");
   const response = await fetch(
   "https://my.api.mockaroo.com/sc11?key=966c3bd0"
   );
-  const jsonData = await response.json();
-  console.log(jsonData);
+  jsonData = await response.json();
   });
+
+When("I fill a text with mockaroo {string} {string} {string}",
+async function (description, reference, field_type) {
+  console.log(description)
+  if (jsonData.hasOwnProperty(field_type)) {
+    let element = await this.driver.$(reference);
+    return await element.setValue(jsonData[field_type]);
+  } else {
+    throw new Error(`The key ${field_type} doesnt exist.`);
+
+  }
+});
