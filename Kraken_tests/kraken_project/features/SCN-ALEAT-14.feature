@@ -1,10 +1,10 @@
 Feature: Testing ghost app
 
 @user1 @web
-Scenario Outline: Editar email en información del perfil con valor invalido
+Scenario: Editar email en información del perfil con valor invalido
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
   And I wait for 5 seconds
-  And I update the counter with <id>
+  And I update the counter with 1
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
   And I wait for 5 seconds
   And I navigate to page "http://localhost:2368/ghost/#/site"
@@ -13,16 +13,11 @@ Scenario Outline: Editar email en información del perfil con valor invalido
   And I wait for 3 seconds
   And I click a button "Click in your profile item" 'a[data-test-nav="user-profile"]'
   And I wait for 3 seconds
-  And I fill with text a field "Fill in with full name" 'input[id="user-name"]' "<fullname>"
+  And I fill with text a field fake "Fill in with full name" 'input[id="user-name"]' "$name_1"
   And I wait for 3 seconds
-  And I fill with text a field "Fill in with full name" 'input[id="user-email"]' "<email>"
+  And I fill with text a field fake "Fill in with email" 'input[id="user-email"]' "$string_1"
   And I wait for 3 seconds
-  And I fill with text a field "Fill in with full name" 'input[class="gh-input user-slug"]' "<slug>"
+  And I fill with text a field fake "Fill in with full name" 'input[class="gh-input user-slug"]' "$url_1"
   And I wait for 3 seconds
   Then I find an element "description fullname error" 'p[class="response]"'
   And I wait for 3 seconds
-
-  Examples:
-  | id | slug |fullname | email |
-  | 2 | slug2 | Dani Pino | pino- |
-  | 1 | slug1 | Joha Baz | baz.com |

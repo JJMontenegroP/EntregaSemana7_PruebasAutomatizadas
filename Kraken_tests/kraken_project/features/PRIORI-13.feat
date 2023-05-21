@@ -1,26 +1,26 @@
 Feature: Testing ghost app
 
-@user2 @web
-Scenario Outline: Crear Tag  con una  description con un número de caracteres por encima del límite(500)
+@user1 @web
+Scenario Outline: Editar full Name en información del perfil con valor por encima del limite superior
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
   And I wait for 5 seconds
   And I update the counter with <id>
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
   And I wait for 5 seconds
-  And I navigate to page "http://localhost:2368/ghost/#/tags"
+  And I navigate to page "http://localhost:2368/ghost/#/site"
   And I wait for 2 seconds
-  And I click a button "Click a New tag btn" 'a[href="#/tags/new/"]'
+  And I click a button "Click in the avatar image in left menu" 'span[class="absolute dib ba b--white br-100 gh-whats-new-badge-account"]'
   And I wait for 3 seconds
-  And I fill with text a field "Fill in description tag" 'textarea[class="gh-input gh-tag-details-textarea"]' "<description>"
+  And I click a button "Click in your profile item" 'a[data-test-nav="user-profile"]'
   And I wait for 3 seconds
-  And I fill with text a field "Fill in tag name" 'input[id="tag-name"]' "<tagName>"
+  And I fill with text a field "Fill in with full name" 'input[id="user-name"]' "<fullname>"
   And I wait for 3 seconds
-  And I click a btn "Click the save tag btn" 'button[data-test-button="save"]'
+  And I fill with text a field "Fill in with full name" 'input[class="gh-input user-slug"]' "<slug>"
   And I wait for 3 seconds
-  And I find an element "description message error" 'p[class="response]"'
-  And I wait for 2 seconds
+  Then I find an element "description fullname error" 'p[class="response]"'
+  And I wait for 3 seconds
 
   Examples:
-  | id | tagName | description | characters |
-  | 2 | Tag 50  | wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwddddddddwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss22222 | 510 | 
-  | 1 |  Tag 51 | wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwddddddddwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss | 505 | 
+  | id | slug |fullname | characters |
+  | 2 | slug2 |wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwddddddddwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss33333333333 | 300 |
+  | 1 | slug1 |wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwddddddddwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss33333333333asdedfrfrt | 310 |
