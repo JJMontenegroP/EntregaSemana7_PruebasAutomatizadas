@@ -1,0 +1,20 @@
+Feature: Log in
+
+@user2 @web
+Scenario Outline: Realizar login en la aplicación con Password invalido
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 3 seconds
+  And I update the counter with <id>
+  When I type a value in 'input[class="gh-input email"]' with "<email>"
+  And I wait for 2 seconds
+  And I type a value in 'input[class="gh-input password"]' with "<password>"
+  And I wait for 2 seconds
+  And I click a button "Click Sign in btn" 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 2 seconds
+  Then I click a button "Click the message label" 'p[class="main-error"]'
+  And I wait for 2 seconds
+
+  Examples:
+  | id | email | password |
+  | 2 | danielerazoiin@gmail.com | 2873828 | 
+  | 1 | danielerazoiin@gmail.com | 3838388 | 

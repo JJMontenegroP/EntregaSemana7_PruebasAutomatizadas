@@ -1,0 +1,15 @@
+Feature: Log in
+
+@user2 @web
+Scenario: Realizar login en la aplicación con email invalido
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 3 seconds
+  And I update the counter with 1
+  When I type a fake value in 'input[class="gh-input email"]' with "$name_1"
+  And I wait for 2 seconds
+  And I type the valid password in login 'input[class="gh-input password"]'
+  And I wait for 2 seconds
+  And I click a button "Click Sign in btn" 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 2 seconds
+  Then I click a button "Click the message label" 'p[class="main-error"]'
+  And I wait for 2 seconds
