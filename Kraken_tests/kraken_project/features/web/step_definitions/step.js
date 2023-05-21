@@ -8,6 +8,11 @@ const password = "And3sP@Krak3n2023";
 this.counterRows = 1;
 
 var jsonData = ''
+const apiURLs = {
+  sc01: "https://my.api.mockaroo.com/scenario_01?key=966c3bd0",
+};
+
+let responseHttp;
 
 // ----------DATA A PRIORI STARTS
 
@@ -41,6 +46,17 @@ When(
 );
 
 // ----------DATA A PRIORI ENDS
+
+// -----------DATA PSEUDO ALEATORIA
+When("I retrieve data from {string}", async function (urlUrlKey) {
+  console.log(apiURLs[urlUrlKey]);
+
+  const response = await fetch(apiURLs[urlUrlKey]);
+
+  responseHttp = await response.json();
+
+  console.log(responseHttp);
+});
 
 // ----------ESCENARIOS ALEATORIOS STARTS
 
