@@ -1,0 +1,2 @@
+id,email,name,note,subscribed_to_emails,complimentary_plan,stripe_customer_id,created_at,deleted_at,labels,tiers
+6469623272a91e99c0d6096a,testemail@example.com,Test Email,This is a test template for importing your members list to Ghost,true,,,2019-10-30T14:52:08.000Z,,"promotion,vip,Import 2023-05-21 00:13",
