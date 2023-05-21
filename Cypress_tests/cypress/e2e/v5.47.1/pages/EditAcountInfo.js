@@ -19,7 +19,7 @@ class EditAccountInfoPage {
     saveSuccedButton: () => cy.get("button").contains("span","Saved"),
     retryButton: () => cy.get("button").contains("span","Retry"),
     wrongFacebookResponse: () => cy.get("p").contains("The URL must be in a format like https://www.facebook.com/yourPage"),
-    wrongtwitterResponse: () => cy.get("p").contains("Your Username is not a valid Twitter Username"),
+    wrongtwitterResponse: () => cy.get("p").contains("The URL must be in a format like https://twitter.com/yourUsername"),
     longBioResponse: () => cy.get("p").contains("Bio is too long")
   };
 

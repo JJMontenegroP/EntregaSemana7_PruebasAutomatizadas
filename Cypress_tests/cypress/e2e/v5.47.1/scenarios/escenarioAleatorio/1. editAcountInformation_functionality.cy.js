@@ -1,14 +1,12 @@
 import LoginPage from "../../pages/LoginPage";
 import EditAccountInfoPage from "../../pages/EditAcountInfo";
-import mockData_success from "../poolDataA-priori/data/mock_data_edit_acount_info_success.json";
-import mockData_wrongEmail from "../poolDataA-priori/data/mock_data_edit_acount_info_wrong_email.json";
-import mockData_wrongFacebook from "../poolDataA-priori/data/mock_data_edit_acount_info_wrongFacebookURl.json";
-import mockData_wrongTwitter from "../poolDataA-priori/data/mock_data_edit_acount_info_wrongTwitterURl.json";
-import mockData_longBioWrong from "../poolDataA-priori/data/mock_data_edit_acount_info_longBioWrong.json";
-import mockData_longBioSuccess from "../poolDataA-priori/data/mock_data_edit_acount_info_longBioSuccess.json";
+import mockData_success from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_success.json";
+import mockData_wrongEmail from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_wrong_email.json";
+import mockData_wrongFacebook from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_wrongFacebookURl.json";
+import mockData_wrongTwitter from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_wrongTwitterURl.json";
+import mockData_longBioWrong from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_longBioWrong.json";
+import mockData_longBioSuccess from "../poolDataA-priori/data/1. editAccount_functionality/mock_data_edit_acount_info_longBioSuccess.json";
 import parameters from "../../../parameters";
-
-const ghostUrl = Cypress.env("baseURL");
 
 beforeEach(() => {
   LoginPage.visitLoginPage();
@@ -59,7 +57,7 @@ describe("Edit account information", () => {
 
     
     it("Should no edit the account information (wrong twitter URL format)", () => {
-      EditAccountInfoPage.elements.userTwitterProfileInput().type(Twitter_profile);
+      EditAccountInfoPage.elements.userTwitterProfileInput().clear().type(Twitter_profile);
       EditAccountInfoPage.elements.userFacebookProfileInput().click();
       EditAccountInfoPage.elements.wrongtwitterResponse().should("be.visible");
     });     
