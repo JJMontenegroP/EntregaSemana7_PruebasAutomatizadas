@@ -1,10 +1,12 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const fs = require("fs");
+const fetch = require("node-fetch");
 
-const email = "danielerazoiin@gmail.com";
-const password = "Udea191919";
+const email = "s.sierrar2@uniandes.edu.co";
+const password = "And3sP@Krak3n2023";
 
 this.counterRows = 1;
+
 
 // ----------DATA A PRIORI STARTS
 
@@ -178,3 +180,12 @@ Then("I change sshots names", async function () {
     console.log(file);
   });
 });
+
+When("I retrieve data from", async function () {
+  console.log("ññññññññññññññ");
+  const response = await fetch(
+  "https://my.api.mockaroo.com/sc11?key=966c3bd0"
+  );
+  const jsonData = await response.json();
+  console.log(jsonData);
+  });
