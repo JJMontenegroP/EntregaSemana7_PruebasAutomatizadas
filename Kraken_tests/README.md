@@ -61,7 +61,8 @@ Kraken es una herramienta de código abierto para realizar pruebas automáticas 
 2. Abrir la carpeta **kraken_tests/kraken_project** con el IDE de su gusto. Esta será nuestra carpeta raiz de ahora en adelante 
 
 3. Ejecutar en la raíz del proyecto: <br> npm install kraken-node
-4. En caso de tener problemas appium, instalarlo globalmente con el siguiente comando: <br> npm install -g appium
+4. Ejecutar en la raíz del proyecto: <br> npm install node-fetch@2
+5. En caso de tener problemas appium, instalarlo globalmente con el siguiente comando: <br> npm install -g appium
 
 ### Ejecución de pruebas 
 
