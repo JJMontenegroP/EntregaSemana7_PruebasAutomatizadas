@@ -4,6 +4,7 @@ Feature: Testing ghost app
 Scenario: Editar un miembro y validar que existe
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
   And I wait for 5 seconds
+  And I update the counter with 1
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
   And I wait for 5 seconds
   And I retrieve data from "sc11"
