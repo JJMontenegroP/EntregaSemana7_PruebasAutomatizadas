@@ -1,0 +1,31 @@
+Feature: Testing ghost app
+
+@user2 @web
+Scenario: Crear Post y revisar que existe
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 5 seconds
+  And I retrieve data from "posts"
+  And I update the counter with 1
+  When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 5 seconds
+  And I click a button "Click post btn in lateral menu" 'a[class="ember-view gh-secondary-action gh-nav-new-post"]'
+  And I wait for 5 seconds
+  And I fill with text a field pseudo "Fill Post title" 'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]' "title"
+  And I fill with text a post desc pseudo "description"
+  And I wait for 2 seconds
+  And I click a button "Click a publish btn" 'button[data-test-button="publish-flow"]'
+  And I wait for 2 seconds
+  And I click a button "Click a continue, final review btn" 'button[data-test-button="continue"]'
+  And I wait for 2 seconds
+  And I click a button "Click a publish post, right now btn" 'button[data-test-button="confirm-publish"]'
+  And I wait for 2 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/site"
+  And I wait for 2 seconds
+  And I click a button "Click a search btn in side menu" 'button[class="gh-nav-btn-search"]'
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in with post name" 'input[class="gh-input-with-select-input"]' "title"
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in with post name" 'input[class="gh-input-with-select-input"]' "title"
+  And I wait for 3 seconds
+  Then I click a btn "Click the search result" 'li[class="ember-power-select-option"]'
+  And I wait for 3 seconds
