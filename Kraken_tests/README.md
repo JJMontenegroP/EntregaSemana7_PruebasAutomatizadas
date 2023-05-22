@@ -79,7 +79,7 @@ Con las siguientes credenciales: email: pruebas_automaticas@gmail.com y password
 
 5. Ir a la carpeta **reports** en la raíz del proyecto y revisar los resultados 
 
-***Importante: al momento de ejecutar los escenarios correspondientes a la estrategia de generación de datos a priori es importante cerrar todas las ventanas abiertas solamente en el momentos en que todas las pruebas han sido corridas***
+***Importante: al momento de ejecutar los escenarios correspondientes a la estrategia de generación de datos a priori es importante cerrar todas las ventanas abiertas solamente en el momentos en que todas las pruebas del escenario han sido terminadas***
 
 ### Muy importante
 - El usuario registrado en el paso 2 será con el que se realizaran todas las pruenas
