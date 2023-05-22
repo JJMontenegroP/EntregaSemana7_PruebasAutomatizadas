@@ -29,6 +29,7 @@ const apiURLs = {
   newPassLessThanTen: "https://my.api.mockaroo.com/new_pass_less?key=966c3bd0",
   newPassNoMatch: "https://my.api.mockaroo.com/new_pass_no_match?key=966c3bd0",
   oldPassNoMatch: "https://my.api.mockaroo.com/old_pass_no_match?key=966c3bd0",
+  sc23: "https://my.api.mockaroo.com/data_too_long?key=966c3bd0"
 };
 
 let responseHttp;
