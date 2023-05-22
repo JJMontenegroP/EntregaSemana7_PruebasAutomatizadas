@@ -80,7 +80,7 @@ describe("Edit account information", () => {
   });
 
   // Success Account information editing
-  it.only("Should  edit the account information", () => {
+  it("Should  edit the account information", () => {
     EditAccountInfoPage.requests
       .getMockarooDataFromAPI()
       .then(

@@ -57,7 +57,14 @@ describe("Edit account information", () => {
     EditAccountInfoPage.elements.longBioResponse().should("be.visible");
   });
 
-  // Auccessfully accounty information editing
+  // Succesfully bio edition
+  it("Should edit the account bio", () => {
+    EditAccountInfoPage.elements.userBioInput().clear().type(faker.lorem.words(20));
+    EditAccountInfoPage.elements.saveButton().click();
+    EditAccountInfoPage.elements.saveSuccedButton().should("be.visible");     
+  });
+
+  // Successfully accounty information editing
   it("Should edit succesfully the account information", () => {
     EditAccountInfoPage.editInformation(
       faker.person.fullName(),
