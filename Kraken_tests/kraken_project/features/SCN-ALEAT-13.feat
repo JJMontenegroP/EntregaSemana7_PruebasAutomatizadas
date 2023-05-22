@@ -12,9 +12,9 @@ Scenario Outline: Editar una nueva pagina y validar que quedo editada
   And I wait for 2 seconds
   And I click a button "Click on the created member" 'h3[class="gh-content-entry-title"]'
   And I wait for 2 seconds
-  And I fill with text a field "Fill Page title" 'textarea[placeholder="Page title"]' "$name_3"
+  When I type a fake value in 'textarea[placeholder="Page title"]' with "$name_3"
   And I wait for 3 seconds
-  And I fill with text a field "Fill Page content" 'div[data-placeholder="Begin writing your page..."]' "$url_1"
+  When I type a fake value in 'div[data-placeholder="Begin writing your page..."]' with "$url_1"
   And I wait for 3 seconds
   And I click a button "Click on publish btn" 'button[class="gh-btn gh-btn-editor darkgrey gh-publish-trigger"]'
   And I wait for 3 seconds

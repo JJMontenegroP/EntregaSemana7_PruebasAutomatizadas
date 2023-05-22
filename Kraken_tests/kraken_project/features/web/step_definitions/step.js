@@ -10,7 +10,8 @@ this.counterRows = 1;
 const apiURLs = {
   sc01: "https://my.api.mockaroo.com/scenario_01?key=966c3bd0",
   sc11: "https://my.api.mockaroo.com/sc11?key=966c3bd0",
-  sc13: "https://my.api.mockaroo.com/page_schema?key=966c3bd0"
+  sc13: "https://my.api.mockaroo.com/page_schema?key=966c3bd0",
+  sc15: "https://my.api.mockaroo.com/site_title_desc?key=966c3bd0"
 };
 
 let responseHttp;

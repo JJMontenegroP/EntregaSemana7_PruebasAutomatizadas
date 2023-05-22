@@ -1,7 +1,7 @@
 Feature: Testing ghost app
 
 @user1 @web
-Scenario Outline: crear member
+Scenario Outline: editar member
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
   And I wait for 5 seconds
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
