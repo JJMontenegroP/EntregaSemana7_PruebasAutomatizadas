@@ -20,11 +20,10 @@ describe("Management tags on website", () => {
             method: "GET",
             url: "https://my.api.mockaroo.com/tags_api.json?key=04f62920",
             responseType: "text"
-          }).then(tags => {
-            tags.forEach(tag=>{
-            CreateTag.newTag(tag.name, tag.color, tag.slug, tag.description);
+          }).then(request => {
+            request.body.forEach(tag=>{
+            CreateTag.newTag(tag.name, tag.color.substring(1,tag.color.length), tag.slug, tag.description);
             cy.contains(tag.name).eq(0).should("exist");
-            cy.screenshot(`v5-${Cypress.currentTest.titlePath.join("/")}/step`);
             });
         });
     });
