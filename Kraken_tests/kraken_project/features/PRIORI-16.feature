@@ -1,0 +1,30 @@
+Feature: Testing ghost app
+
+@user1 @web
+Scenario: Editar un miembro y validar que existe
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 5 seconds
+  And I update the counter with <id>
+  When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 5 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/site"
+  And I wait for 2 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/members"
+  And I wait for 2 seconds
+  And I click a button "Click on the created member" 'h3[class="ma0 pa0 gh-members-list-name "]'
+  And I wait for 2 seconds
+  And I fill with text a field "Filling name with priori data" 'input[class="ember-text-field gh-input ember-view"]' "<fullname>"
+  And I wait for 3 seconds
+  And I fill with text a field "Fill Member Email with priori data" 'input[id="member-email"]' "<email>"
+  And I wait for 3 seconds
+  And I fill with text a field "Fill Member Description with priori data" 'textarea[id="member-note"]' "<description>"
+  And I wait for 3 seconds
+  And I click a button "Click on save btn" 'button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]'
+  And I wait for 3 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/members"
+  And I wait for 3 seconds
+  Then I change sshots names
+
+  Examples:
+  | id | description |fullname | email |
+  | 1 | This is an edit user | Pepito Florez  | pepi@florez.com.co |
