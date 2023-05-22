@@ -57,7 +57,7 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
 - Selecionar Chromium y posterior, Start E2E testing
 - ![image](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/assets/124220935/e513010a-ddf2-4a13-96c5-d09e2611634a)
 
-4. Ejecutar primeramente el escenario de crear cuenta que e encuentra fuera de las carpetas de las estrategias de generación de datos, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
+4. Ejecutar primeramente el escenario de crear cuenta **Create Ghost account** que se encuentra fuera de las carpetas de las estrategias de generación de datos, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
 
 ## Escenarios de pruebas
 [Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/1.1.-Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
