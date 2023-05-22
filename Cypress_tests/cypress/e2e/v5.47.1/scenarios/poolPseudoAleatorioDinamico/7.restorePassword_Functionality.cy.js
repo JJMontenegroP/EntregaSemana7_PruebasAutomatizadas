@@ -1,4 +1,4 @@
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../../pages/LoginPage";
 
 describe("Verify that a password recovery message is not sent", () => {
         beforeEach(() => {
