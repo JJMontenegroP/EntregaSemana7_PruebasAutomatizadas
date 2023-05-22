@@ -1,0 +1,38 @@
+Feature: Testing ghost app
+
+@user2 @web
+Scenario: Crear Tag y editar el tag creado
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 5 seconds
+  And I retrieve data from "updateTags"
+  And I update the counter with 1
+  When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 5 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/tags"
+  And I wait for 2 seconds
+  And I click a button "Click a New tag btn" 'a[href="#/tags/new/"]'
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in tag name" 'input[id="tag-name"]' "name"
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in description tag" 'textarea[class="gh-input gh-tag-details-textarea"]' "description"
+  And I wait for 3 seconds
+  And I click a btn "Click the save tag btn" 'button[data-test-button="save"]'
+  And I wait for 4 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/tags"
+  And I wait for 3 seconds
+  And I click a button "Click a search btn in side menu" 'button[class="gh-nav-btn-search"]'
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in with post name" 'input[class="gh-input-with-select-input"]' "name"
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in with post name" 'input[class="gh-input-with-select-input"]' "name"
+  And I wait for 3 seconds
+  And I click a btn "Click the search result" 'li[class="ember-power-select-option"]'
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in tag name" 'input[id="tag-name"]' "new_name"
+  And I wait for 3 seconds
+  And I fill with text a field pseudo "Fill in description tag" 'textarea[class="gh-input gh-tag-details-textarea"]' "new_description"
+  And I wait for 3 seconds
+  And I click a button "Click in save btn" 'button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]'
+  And I wait for 3 seconds
+  Then I navigate to page "http://localhost:2368/ghost/#/tags"
+  And I wait for 3 seconds

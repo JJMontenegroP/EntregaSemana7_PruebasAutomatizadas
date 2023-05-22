@@ -61,13 +61,15 @@ Kraken es una herramienta de código abierto para realizar pruebas automáticas 
 2. Abrir la carpeta **kraken_tests/kraken_project** con el IDE de su gusto. Esta será nuestra carpeta raiz de ahora en adelante 
 
 3. Ejecutar en la raíz del proyecto: <br> npm install kraken-node
-4. En caso de tener problemas appium, instalarlo globalmente con el siguiente comando: <br> npm install -g appium
+4. Ejecutar en la raíz del proyecto: <br> npm install node-fetch@2
+5. En caso de tener problemas appium, instalarlo globalmente con el siguiente comando: <br> npm install -g appium
 
 ### Ejecución de pruebas 
 
 1. Correr Ghost localmente en el puerto 2368, generalmente este es el puerto por defecto.
 
-2. Crear una cuenta en la aplicación de ghost que se encuentra corriendo localmente en su maquina en: <br> http://localhost:2368/ghost/#/setup
+2. Crear una cuenta en la aplicación de ghost que se encuentra corriendo localmente en su maquina en: <br> http://localhost:2368/ghost/#/setup <br>
+Con las siguientes credenciales: email: pruebas_automaticas@gmail.com y password: Uniandes2023 Esto con el fin de garantizar la calidad de las pruebas
 
 4. Dirigirse al archivo step.js el cual se encuentra en **features/web/step_definitions** y modificar las constantes email y password con las utilizadas en el paso 2 para hacer el registro 
 

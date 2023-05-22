@@ -2,14 +2,33 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const fs = require("fs");
 const fetch = require("node-fetch");
 
-const email = "s.sierrar2@uniandes.edu.co";
-const password = "And3sP@Krak3n2023";
+const email = "pruebas_automaticas@gmail.com";
+const password = "Uniandes2023";
 
 this.counterRows = 1;
 
-var jsonData = ''
 const apiURLs = {
   sc01: "https://my.api.mockaroo.com/scenario_01?key=966c3bd0",
+  sc11: "https://my.api.mockaroo.com/sc11?key=966c3bd0",
+  sc13: "https://my.api.mockaroo.com/page_schema?key=966c3bd0",
+  sc15: "https://my.api.mockaroo.com/site_title_desc?key=966c3bd0",
+  sc16: "https://my.api.mockaroo.com/lang?key=966c3bd0",
+  sc02: "https://my.api.mockaroo.com/scenario_02?key=966c3bd0",
+  posts: "https://my.api.mockaroo.com/posts?key=966c3bd0",
+  updatePosts: "https://my.api.mockaroo.com/update_posts?key=966c3bd0",
+  tags: "https://my.api.mockaroo.com/tags?key=966c3bd0",
+  updateTags: "https://my.api.mockaroo.com/update_tags?key=966c3bd0",
+  sc09: "https://my.api.mockaroo.com/scenario_09?key=966c3bd0",
+  sc10: "https://my.api.mockaroo.com/scenario_10?key=966c3bd0",
+  tagsLimitDesc: "https://my.api.mockaroo.com/tags_limit_desc?key=966c3bd0",
+  tagsLimitName: "https://my.api.mockaroo.com/tags_limit_name?key=966c3bd0",
+  profileNameLimit:
+    "https://my.api.mockaroo.com/profile_name_limit?key=966c3bd0",
+  profileEmailInvalid:
+    "https://my.api.mockaroo.com/profile_email_invalid?key=966c3bd0",
+  newPassLessThanTen: "https://my.api.mockaroo.com/new_pass_less?key=966c3bd0",
+  newPassNoMatch: "https://my.api.mockaroo.com/new_pass_no_match?key=966c3bd0",
+  oldPassNoMatch: "https://my.api.mockaroo.com/old_pass_no_match?key=966c3bd0",
 };
 
 let responseHttp;
@@ -17,8 +36,6 @@ let responseHttp;
 // ----------DATA A PRIORI STARTS
 
 When("I update the counter with {int}", async function (rowIndex) {
-  console.log(rowIndex);
-  console.log(typeof rowIndex);
   this.counterRows = rowIndex;
 });
 
@@ -57,6 +74,31 @@ When("I retrieve data from {string}", async function (urlUrlKey) {
 
   console.log(responseHttp);
 });
+
+When(
+  "I fill with text a field pseudo {string} {string} {string}",
+  async function (description, reference, responseHttpKey) {
+    console.log(description);
+
+    let element = await this.driver.$(reference);
+    return await element.setValue(responseHttp[responseHttpKey]);
+  }
+);
+
+When(
+  "I fill with text a post desc pseudo {string}",
+  async function (responseHttpKey) {
+    let element = await this.driver.$(
+      'div[class="koenig-editor__editor-wrapper"]'
+    );
+
+    await element.click();
+
+    let elementP = await this.driver.$('p[data-koenig-dnd-droppable="true"]');
+
+    await elementP.setValue(responseHttp[responseHttpKey]);
+  }
+);
 
 // ----------ESCENARIOS ALEATORIOS STARTS
 
@@ -198,20 +240,15 @@ Then("I change sshots names", async function () {
   });
 });
 
-When("I retrieve data from", async function () {
-  const response = await fetch(
-  "https://my.api.mockaroo.com/sc11?key=966c3bd0"
-  );
-  jsonData = await response.json();
-  });
-
-When("I fill a text with mockaroo {string} {string} {string}",
-async function (description, reference, field_type) {
-  console.log(description)
-  if (jsonData.hasOwnProperty(field_type)) {
-    let element = await this.driver.$(reference);
-    return await element.setValue(jsonData[field_type]);
-  } else {
-    throw new Error(`The key ${field_type} doesnt exist.`);
+When(
+  "I fill a text with mockaroo {string} {string} {string}",
+  async function (description, reference, field_type) {
+    console.log(description);
+    if (responseHttp.hasOwnProperty(field_type)) {
+      let element = await this.driver.$(reference);
+      return await element.setValue(responseHttp[field_type]);
+    } else {
+      throw new Error(`The key ${field_type} doesnt exist.`);
+    }
   }
-});
+);

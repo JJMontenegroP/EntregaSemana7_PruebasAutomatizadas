@@ -16,5 +16,5 @@ Scenario Outline: Realizar login en la aplicación con Password invalido
 
   Examples:
   | id | email | password |
-  | 2 | danielerazoiin@gmail.com | 2873828 | 
-  | 1 | danielerazoiin@gmail.com | 3838388 | 
+  | 2 | pruebas_automaticas@gmail.com | 2873828 | 
+  | 1 | pruebas_automaticas@gmail.com | 3838388 | 
