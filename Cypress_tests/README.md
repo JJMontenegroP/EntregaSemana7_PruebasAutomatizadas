@@ -49,7 +49,15 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
   - Pararse en el directorio de la aplicación ghost
   - ejecutar el comando rm -f content/data/ghost-local.db
 
-3. Ejecutar primeramente el escenario de crear cuenta que e encuentra fuera de las carpetas de las estrategias de generación de datos, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
+3. Ejecutar cypress: En la carpeta Cypress_tests ejecutar el comando **npx cypress open** para ejecutar cypress.
+
+ - Dirigirse a la opción E2E Testing
+![image](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/assets/124220935/7dec4148-8b63-4012-92f9-d077925f7722)
+
+- Selecionar Chromium y posterior, Start E2E testing
+- ![image](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/assets/124220935/e513010a-ddf2-4a13-96c5-d09e2611634a)
+
+4. Ejecutar primeramente el escenario de crear cuenta que e encuentra fuera de las carpetas de las estrategias de generación de datos, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
 
 ## Escenarios de pruebas
 [Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/1.1.-Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
