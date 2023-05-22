@@ -6,7 +6,7 @@ Scenario: Crear un nuevo miembro y validar que existe
   And I wait for 5 seconds
   When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
   And I wait for 5 seconds
-  And I retrieve data from
+  And I retrieve data from "sc11"
   And I navigate to page "http://localhost:2368/ghost/#/members"
   And I wait for 2 seconds
   And I click a button "Click on the new member option" 'a[href="#/members/new/"]'
