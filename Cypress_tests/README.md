@@ -19,9 +19,7 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
 
 ## Funcionalidades probadas 
 
-- Crear cuenta nueva
-
-- Crear Post nuevo
+- Editar información de la cuenta
 
 - Importar miembros
 
@@ -29,13 +27,6 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
 
 - Crear Tag
 
-- Elimiar tag
-
-- Crear página
-
-- Eliminar página
-
-- Modulo de contraseñas olvidadas
  
 
 ## Pasos para poder ejecutar los escenarios de pruebas con la herramienta Cypress 
@@ -58,7 +49,10 @@ Cypress es un framework de pruebas automatizadas para aplicaciones web. Se utili
   - Pararse en el directorio de la aplicación ghost
   - ejecutar el comando rm -f content/data/ghost-local.db
 
-3. Ejecutar primeramente el escenario de crear cuenta, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
+3. Ejecutar primeramente el escenario de crear cuenta que e encuentra fuera de las carpetas de las estrategias de generación de datos, luego ya se pueden ejecutar los otros escenarios en cualquier orden.
 
 ## Escenarios de pruebas
 [Escenarios de pruebas](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/1.1.-Escenarios-de-pruebas-dise%C3%B1ado-y-ejecutados-con-Cypress)
+
+## Estrategias de generación de data
+
