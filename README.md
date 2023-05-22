@@ -10,6 +10,7 @@ Integrantes:
 
 # Herramientas utilizadas para pruebas de E2E
 ## [Cypress](/Cypress_tests)
+## [Estrategias de generación de datos](https://github.com/JJMontenegroP/EntregaSemana7_PruebasAutomatizadas/wiki/3.-Estrategias-de-generaci%C3%B3n-de-data-para-pruebas-en-Cypress)
 
 *** 
 
