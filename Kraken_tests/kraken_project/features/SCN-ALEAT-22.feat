@@ -1,0 +1,35 @@
+Feature: Testing ghost app
+
+@user1 @web
+Scenario Outline: crear pagina y eliminarla.
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+  And I wait for 5 seconds
+  When I log in 'input[class="gh-input email"]' 'input[class="gh-input password"]' 'button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon ember-view"]'
+  And I wait for 5 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/site"
+  And I wait for 2 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/pages"
+  And I wait for 2 seconds
+  And I click a button "Click on the new page option" 'a[href="#/editor/page/"]'
+  And I wait for 3 seconds
+  When I type a fake value in 'textarea[placeholder="Page title"]' with "$name_3"
+  And I wait for 3 seconds
+  When I type a fake value in 'div[data-placeholder="Begin writing your page..."]' with "$url_1"
+  And I wait for 3 seconds
+  And I click a button "Click on publish btn" 'button[class="gh-btn gh-btn-editor darkgrey gh-publish-trigger"]'
+  And I wait for 3 seconds
+  And I click a button "Click on confirm btn" 'button[data-test-button="continue"]'
+  And I wait for 3 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/pages"
+  And I wait for 2 seconds
+  And I click a button "Click on the created page" 'h3[class="gh-content-entry-title"]'
+  And I wait for 2 seconds
+  And I click a button "Click on the Settings button" 'button[title="Settings"]'
+  And I wait for 3 seconds
+  And I click a button "Click on the delete button" 'button[class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth"]'
+  And I wait for 3 seconds
+  And I click a button "Click on the delete confirm button" 'button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]'
+  And I wait for 3 seconds
+  And I navigate to page "http://localhost:2368/ghost/#/pages"
+  And I wait for 3 seconds
+  Then I change sshots names
