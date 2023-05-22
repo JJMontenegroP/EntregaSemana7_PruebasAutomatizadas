@@ -68,7 +68,8 @@ Kraken es una herramienta de código abierto para realizar pruebas automáticas 
 
 1. Correr Ghost localmente en el puerto 2368, generalmente este es el puerto por defecto.
 
-2. Crear una cuenta en la aplicación de ghost que se encuentra corriendo localmente en su maquina en: <br> http://localhost:2368/ghost/#/setup
+2. Crear una cuenta en la aplicación de ghost que se encuentra corriendo localmente en su maquina en: <br> http://localhost:2368/ghost/#/setup <br>
+Con las siguientes credenciales: email: pruebas_automaticas@gmail.com y password: Uniandes2023 Esto con el fin de garantizar la calidad de las pruebas
 
 4. Dirigirse al archivo step.js el cual se encuentra en **features/web/step_definitions** y modificar las constantes email y password con las utilizadas en el paso 2 para hacer el registro 
 
