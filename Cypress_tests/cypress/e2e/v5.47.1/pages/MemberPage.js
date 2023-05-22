@@ -26,24 +26,29 @@ class MemberPage {
             this.loadFileCSV(pathcsv);
         }
     }
-
-    importInvalidCSV( ) {
+    importInvalidCSV(pathcsv) {
         const existTableMember = this.validateExistMembers();
         if( !existTableMember ) {
-            cy.contains(/lengthCSV/).click();
-            this.loadFileCSV("cypress/fixtures/member-import-template-wrong.csv");
+            cy.contains(/CSV/).click();
+            this.loadFileCSV(pathcsv);
         } else {
             cy.get("button[data-test-button='members-actions']").click();
             cy.get("a[data-test-link='import-csv']").click();
-            this.loadFileCSV("cypress/fixtures/member-import-template-wrong.csv");
+            this.loadInvalidFileCSV(pathcsv);
         }
     }
 
     loadFileCSV(pathcsv) {
         cy.get("input[type=file]").eq(0).selectFile(pathcsv, { force: true })
         cy.get("button").contains(/Import/).click();
-        cy.wait(30000)
+        cy.wait(35000)
         cy.get("button[data-test-button='close-import-members']").click();
+    }
+
+    loadInvalidFileCSV(pathcsv) {
+        cy.get("input[type=file]").eq(0).selectFile(pathcsv, { force: true })
+        cy.get("button").contains(/Import/).click();
+        cy.wait(35000)
     }
 }
 
